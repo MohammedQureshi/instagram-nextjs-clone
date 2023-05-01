@@ -8,13 +8,13 @@ type ProfilePictureType = {
 
 export default function ProfilePicture(props:ProfilePictureType) {
     return (
-        <div className={props.hasUserStory ? styles.hasUserStory : styles.hasNonUserStory}>
+        <div className={styles.parent}>
             <Image
                 src={props.image}
                 className={styles.image}
                 alt="Picture of the author"
-                width={500}
-                height={500}
+                width={56}
+                height={56}
             />
         </div>
     )
