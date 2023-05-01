@@ -4,10 +4,23 @@ import Carousel from './components/Carousel'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default async function Home() {
+  let data = null;
+  data = await fetch('http://localhost:3000/api/users', {
+      method: 'GET',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+      },
+  })
+  .then(response => response.json())  
+  .catch(err => console.log(err))
+  
   return (
     <main>
-      <Carousel />
+      <div>
+        <Carousel users={data} />
+      </div>
     </main>
   )
 }
